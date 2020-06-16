@@ -4,8 +4,6 @@
   Desafio 02: Conceitos do Node.js
 </h3>
 
-<blockquote align="center">“Não espere para plantar, apenas tenha paciência para colher”!</blockquote>
-
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/fpuntel/controlRepositoryNodeJS?color=%2304D361">
 

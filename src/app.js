@@ -2,12 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const { uuid, isUuid } = require('uuidv4');
 
-// const { uuid } = require("uuidv4");
-
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+function validateProjectId(request, response, next){
+  const { id } = request.params;
+
+  if (!isUuid(id)){
+      return response.status(400).json({ error: 'Invalid repository ID'});
+  }
+  return next();
+}
+app.use('/repositories/:id',validateProjectId);
 
 function logRequests(request, response, next) {
   const { method, url } = request;
@@ -107,5 +115,6 @@ app.post("/repositories/:id/like", (request, response) => {
 
 module.exports = app;
 
-
-
+app.listen(3334, () => {
+  console.log(' Backend started');
+});
